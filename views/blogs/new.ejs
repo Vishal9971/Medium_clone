@@ -1,0 +1,27 @@
+<%- include('./partials/header') %> <%- include('./partials/navbar') %>
+
+<div id="newPage" class="mt-5">
+  <form class="form mt-5" action="/blogs" method="POST">
+    <div class="mb-3">
+      <label for="naam" class="form-label">Author Name :</label>
+      <input type="text" id="naam" name="name" />
+    </div>
+    <div class="mb-3">
+      <label for="titli" class="form-label">Title :</label>
+      <input type="text" id="titli" name="title" />
+    </div>
+    <div class="mb-3">
+      <label for="desc" class="form-label">Description :</label>
+      <input type="text" id="desc" name="des" />
+    </div>
+    <div class="mb-3">
+      <label for="imge" class="form-label">Image :</label>
+      <input type="text" id="imge" name="img" />
+    </div>
+    <div class="mb-3">
+      <button>Submit</button>
+    </div>
+  </form>
+</div>
+
+<%- include('./partials/footer') %>

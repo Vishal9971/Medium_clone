@@ -1,0 +1,110 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+#navbar {
+  height: 12vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 10vw;
+  border-bottom: 1px solid black;
+  position: fixed;
+  z-index: 999;
+  background-color: rgb(255, 190, 26);
+}
+#navbar .logo {
+  height: 35px;
+  width: 150px;
+}
+#navbar .buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 30vw;
+}
+#navbar .buttons a {
+  text-decoration: none;
+  color: black;
+}
+.main {
+  min-height: 220vh;
+  width: 100%;
+  position: relative;
+}
+.main .part1 {
+  position: relative;
+  height: 80vh;
+  width: 100%;
+  background-color: rgb(255, 190, 26);
+  border-bottom: 1px solid black;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.main .part1 .firstHalf {
+  width: 60%;
+  padding-left: 10vw;
+}
+.main .part1 .firstHalf h1 {
+  font-size: 120px;
+}
+.main .part1 .firstHalf p {
+  font-size: 26px;
+  width: 60%;
+}
+.main .part1 .secondHalf {
+  display: flex;
+  align-items: end !important;
+}
+.main #collect {
+  display: flex;
+}
+.main #collect .controller {
+  display: block;
+  width: 60%;
+  padding-left: 10vw;
+}
+.main #collect #controlData {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 4vh;
+}
+.main #collect #controlData #data {
+  display: flex;
+  flex-direction: column;
+}
+.main #collect #controlData #data p {
+  width: 90%;
+}
+.main #aside {
+  width: 40%;
+  padding-top: 10vh;
+  padding-left: 5vw;
+  text-align: center;
+}
+
+.main #aside #buttons {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2vw;
+  align-items: center;
+  justify-content: center;
+}
+.main #aside #buttons button {
+  padding: 10px;
+  border-radius: 20px;
+  margin: 0px 10px;
+}
+
+/* ----------new page starts--------------- */
+
+#newPage {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: aquamarine;
+}

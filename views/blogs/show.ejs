@@ -1,0 +1,17 @@
+<%- include('/partials/header') %> <%- include('/partials/navbar') %>
+
+<div class="mb-5 mx-auto">
+  <div id="controlData">
+    <div id="data">
+      <h3><%= item.authorName %></h3>
+      <h2><%= item.title %></h2>
+      <p><%= item.des %></p>
+    </div>
+    <div id="img">
+      <img src="<%=item.img%>" alt="" />
+    </div>
+  </div>
+  <button> <a href="./index">Back</a></button>
+</div>
+
+<%- include('/partials/footer') %>
