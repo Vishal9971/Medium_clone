@@ -1,27 +1,60 @@
 <%- include('./partials/header') %> <%- include('./partials/navbar') %>
 
-<div id="newPage" class="mt-5">
-  <form class="form mt-5" action="/blogs" method="POST">
-    <div class="mb-3">
-      <label for="naam" class="form-label">Author Name :</label>
-      <input type="text" id="naam" name="name" />
-    </div>
-    <div class="mb-3">
-      <label for="titli" class="form-label">Title :</label>
-      <input type="text" id="titli" name="title" />
-    </div>
-    <div class="mb-3">
-      <label for="desc" class="form-label">Description :</label>
-      <input type="text" id="desc" name="des" />
-    </div>
-    <div class="mb-3">
-      <label for="imge" class="form-label">Image :</label>
-      <input type="text" id="imge" name="img" />
-    </div>
-    <div class="mb-3">
-      <button>Submit</button>
-    </div>
-  </form>
-</div>
+<form action="/blogs" method="post" class="selfForm needs-validation" novalidate>
+  <!-- Aurhor Name input -->
+  <h3 class="text-center">Add New Blog</h3>
+  <div class="form-outline mb-4">
+    <label class="form-label" for="authorName">Author Name</label>
+    <input type="text" id="authorName" name="authorName" class="form-control" required />
+    <div class="valid-feedback">Looks good!</div>
+    <div class="invalid-feedback">Please fill author name.</div>
+  </div>
+
+  <!-- Title input -->
+  <div class="form-outline mb-4">
+    <label class="form-label" for="titli">Title</label>
+    <input type="text" id="titli" name="title" required class="form-control" />
+    <div class="valid-feedback">Looks good!</div>
+    <div class="invalid-feedback">Please fill title name.</div>
+  </div>
+
+  <!-- Description input -->
+  <div class="form-outline mb-4">
+    <label class="form-label" for="desc" name="des">Description</label>
+    <input type="text" id="desc" name="des" class="form-control" />
+  </div>
+
+  <!-- Imgage URL -->
+  <div class="form-outline mb-4">
+    <label class="form-label" for="imge" name="des">Image</label>
+    <input type="text" id="imge" name="img" class="form-control" />
+  </div>
+  <!-- Submit button -->
+  <button type="submit" class="btn btn-primary btn-block mb-3">Submit</button>
+</form>
+<script>
+  (function () {
+    'use strict';
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation');
+
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms).forEach(function (form) {
+      form.addEventListener(
+        'submit',
+        function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+
+          form.classList.add('was-validated');
+        },
+        false
+      );
+    });
+  })();
+</script>
 
 <%- include('./partials/footer') %>

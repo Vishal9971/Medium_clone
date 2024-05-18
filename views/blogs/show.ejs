@@ -1,17 +1,70 @@
-<%- include('/partials/header') %> <%- include('/partials/navbar') %>
-
-<div class="mb-5 mx-auto">
-  <div id="controlData">
-    <div id="data">
-      <h3><%= item.authorName %></h3>
-      <h2><%= item.title %></h2>
-      <p><%= item.des %></p>
-    </div>
-    <div id="img">
-      <img src="<%=item.img%>" alt="" />
+<%- include('./partials/header') %> <%- include('./partials/navbar') %>
+<div class="pt-5 mx-auto">
+  <div id="collect" class="align-center pt-5">
+    <div id="controlData">
+      <div id="data">
+        <h1><%= foundBlog.title %></h1>
+        <h3><%= foundBlog.authorName %></h3>
+        <p><%= foundBlog.des %></p>
+        <div id="btnHolder" class="btnHolder">
+          <button class="btn btn-danger btn-md p-2 m-2"><a href="/blogs/<%=foundBlog._id%>/edit">Edit</a></button>
+          <button class="btn btn-danger btn-md p-2 m-2"><a href="/blogs">Back</a></button>
+          <form action="/blogs/<%= foundBlog._id %>?_method=DELETE" method="POST">
+            <button class="btn btn-danger btn-md p-2 m-2">Delete</button>
+          </form>
+        </div>
+      </div>
+      <div id="img">
+        <img src="<%=foundBlog.img%>" alt="" />
+      </div>
     </div>
   </div>
-  <button> <a href="./index">Back</a></button>
+  <div class="mt-5 mx-5">
+    <form action="/blogs/<%=foundBlog._id%>/review" method="POST">
+      <h1>Leave Your Review Here !!!</h1>
+      <p>Rating :</p>
+      <fieldset class="starability-basic">
+        <input
+          type="radio"
+          id="no-rate"
+          class="input-no-rate"
+          name="rating"
+          value="0"
+          checked
+          aria-label="No rating." />
+        <input type="radio" id="first-rate1" name="rating" value="1" />
+        <label for="first-rate1" title="Terrible">1 star</label>
+        <input type="radio" id="first-rate2" name="rating" value="2" />
+        <label for="first-rate2" title="Not good">2 stars</label>
+        <input type="radio" id="first-rate3" name="rating" value="3" />
+        <label for="first-rate3" title="Average">3 stars</label>
+        <input type="radio" id="first-rate4" name="rating" value="4" />
+        <label for="first-rate4" title="Very good">4 stars</label>
+        <input type="radio" id="first-rate5" name="rating" value="5" />
+        <label for="first-rate5" title="Amazing">5 stars</label>
+      </fieldset>
+      <div>
+        <p>comment :</p>
+        <textarea name="comment" id="" cols="30" rows="5"></textarea>
+      </div>
+      <button type="button" class="btn btn-success">Add Review</button>
+    </form>
+  </div>
+  <div class="my-5 mx-5">
+    <h1>Reviews</h1>
+    <%for(let item of foundBlog.reviews){ %>
+      <div class="card mt-5">
+
+        <h4>Rating :</h4>
+        <p class="starability-result" data-rating="<%=item.rating%>"><%=item.rating%>stars</p>
+        <h4>Comment :</h4>
+        <p><%=item.comment%></p>
+        <%if(item.createdAt){%>
+          <h6><%=item.createdAt.toDateString()%></h6>
+        <%}%>
+      </div>
+    <% } %>
+  </div>
 </div>
 
-<%- include('/partials/footer') %>
+<%- include('./partials/footer') %>

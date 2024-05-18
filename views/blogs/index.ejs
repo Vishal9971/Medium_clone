@@ -1,4 +1,4 @@
-<%- include ('./partials/header')%> <%- include('./partials/navbar') %>
+<%- include ('./partials/header')%> <%- include('./partials/navbar') %> 
 <div class="main">
   <div class="part1">
     <div class="firstHalf">
@@ -6642,10 +6642,10 @@ M M M M M M M M M M M M
       <% for(item of allBlogs){ %>
       <div id="controlData">
         <div id="data">
-          <h3><%= item.authorName %></h3>
-          <h2><%= item.title %></h2>
+          <h4><%= item.authorName %></h4>
+          <h3><%= item.title %></h3>
           <p><%= item.des %></p>
-          <a href="/blogs/:id">Show</a>
+          <a href="/blogs/<%=item._id%>">Show</a>
         </div>
         <div id="img">
           <img src="<%=item.img%>" alt="" />

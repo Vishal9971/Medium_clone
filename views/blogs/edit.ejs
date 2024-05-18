@@ -1,0 +1,66 @@
+<%- include('./partials/header') %> <%- include('./partials/navbar') %>
+
+<div class="m-auto pt-5">
+  <form class="form pt-5 needs-validation" action="/blogs/<%=foundBlog._id%>?_method=PATCH" method="POST" novalidate>
+    <div class="mb-3">
+      <label for="naam" class="form-label">Author Name :</label>
+      <input
+        class="form-control form-control-lg"
+        type="text"
+        id="naam"
+        name="name"
+        value="<%=foundBlog.authorName%>"
+        required />
+      <div class="valid-feedback">Looks good!</div>
+      <div class="invalid-feedback">Please fill author name.</div>
+    </div>
+    <div class="mb-3">
+      <label for="titli" class="form-label">Title :</label>
+      <input
+        class="form-control form-control-lg"
+        type="text"
+        id="titli"
+        name="title"
+        value="<%=foundBlog.title%>"
+        required />
+      <div class="valid-feedback">Looks good!</div>
+      <div class="invalid-feedback">Please fill a title.</div>
+    </div>
+    <div class="mb-3">
+      <label for="desc" class="form-label">Description :</label>
+      <input class="form-control form-control-lg" type="text" id="desc" name="des" value="<%=foundBlog.des%>" />
+    </div>
+    <div class="mb-5">
+      <label for="imge" class="form-label">Image :</label>
+      <input class="form-control form-control-lg" type="text" id="imge" name="img" value="<%=foundBlog.img%>" />
+    </div>
+    <div class="mb-5">
+      <button class="btn btn-success">Submit</button>
+    </div>
+  </form>
+</div>
+<script>
+  (function () {
+    'use strict';
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation');
+
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms).forEach(function (form) {
+      form.addEventListener(
+        'submit',
+        function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+
+          form.classList.add('was-validated');
+        },
+        false
+      );
+    });
+  })();
+</script>
+<%- include('./partials/footer') %>
