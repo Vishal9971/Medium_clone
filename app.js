@@ -15,7 +15,7 @@ const authRoutes = require('./routes/authRoutes');
 const Blog = require('./models/Blogs');
 const dbURL =
   process.env.dbURL ||
-  'mongodb+srv://sharmavis77:7VJCILXDHoDFdDMO@cluster0.lwudidb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+  'mongodb+srv://sharmavis77:dX6OrQz1W4Q6u4Sc@blog.ypuyfwb.mongodb.net/?retryWrites=true&w=majority&appName=blog';
 
 mongoose.set('strictQuery', true);
 // const mongoose = require('mongoose');
