@@ -1,3 +1,6 @@
+if (process.env.MODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -9,12 +12,15 @@ const flash = require('connect-flash');
 const blogsRouter = require('./routes/blogsRoutes');
 const reviewRoutes = require('./routes/reviewRoutes');
 const authRoutes = require('./routes/authRoutes');
-const Blog = require('./models/Blogs')
+const Blog = require('./models/Blogs');
+const dbURL =
+  process.env.dbURL ||
+  'mongodb+srv://sharmavis77:7VJCILXDHoDFdDMO@cluster0.lwudidb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
 mongoose.set('strictQuery', true);
 // const mongoose = require('mongoose');
 mongoose
-  .connect('mongodb://127.0.0.1:27017/mediumBlog')
+  .connect(dbURL)
   .then(() => {
     console.log('DB ban gya');
   })
