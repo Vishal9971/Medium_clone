@@ -60,7 +60,7 @@ app.use((req, res, next) => {
   res.locals.error = req.flash('error');
   next();
 });
-seedDB();
+// seedDB();
 
 app.use(blogsRouter);
 
